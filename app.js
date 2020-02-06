@@ -1,6 +1,8 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+const port = process.env.SERVER_PORT;
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var Cors = require('cors');
@@ -22,7 +24,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.listen(port, () => {
+  console.log(`\n App Listen post ${port}`);
+})
 
 app.use('/users', usersRouter);
 app.use('/item', itemRouter)

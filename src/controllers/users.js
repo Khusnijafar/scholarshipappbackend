@@ -39,7 +39,7 @@ module.exports = {
             {
               userid: dataUser.id_user
             },
-            process.env.SECRET_KEY,
+            process.env.SECRET_KEY || "12345",
             { expiresIn: "7d" }
           );
           delete dataUser.salt;

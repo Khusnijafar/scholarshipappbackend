@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const MiscHelper = require("../helpers/helpers");
 
-const allowedAccess = process.env.REQUEST_HEADERS || "authorizations";
+const allowedAccess = process.env.REQUEST_HEADERS;
 
 module.exports = {
   authInfo: (req, res, next) => {
